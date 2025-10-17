@@ -3,6 +3,7 @@ package com.example.smcalculator
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,37 +30,69 @@ class MainActivity : AppCompatActivity() {
         addition.setOnClickListener {
 
 
-            val number1 = edit_text_1.text.toString().toInt()
-            val number2 = edit_text_2.text.toString().toInt()
-            val result = number1 + number2
-            displa.text = "$result"
+            val number1 = edit_text_1.text.toString()
+            val number2 = edit_text_2.text.toString()
+
+            if (number1.isEmpty() || number2.isEmpty()){
+                Toast.makeText(this,"Please Enter a Number",Toast.LENGTH_LONG).show()
+            }else{
+                val num1 = number1.toInt()
+                val num2 = number2.toInt()
+                val result = num1 + num2
+                displa.text = "$result"
+            }
+
+
 
 
         }
 
 
         subtraction.setOnClickListener {
-            val number1 = edit_text_1.text.toString().toInt()
-            val number2 = edit_text_2.text.toString().toInt()
+            val number1 = edit_text_1.text.toString()
+            val number2 = edit_text_2.text.toString()
 
-            val result = number1-number2
-            displa.text = "$result"
+            if (number1.isEmpty() || number2.isEmpty()){
+                Toast.makeText(this,"Please Enter a Number?",Toast.LENGTH_SHORT).show()
+            }else{
+                val num1 = number1.toInt()
+                val num2 = number2.toInt()
+                val result = num1-num2
+                displa.text ="$result"
+            }
+
         }
 
 
         multiplication.setOnClickListener {
-            val number1 = edit_text_1.text.toString().toInt()
-            val number2 = edit_text_2.text.toString().toInt()
+            val number1 = edit_text_1.text.toString()
+            val number2 = edit_text_2.text.toString()
 
-            val result = number1*number2
-            displa.text = "$result"
+            if (number1.isEmpty() || number2.isEmpty()){
+                edit_text_1.setError("please Input Field")
+            }else{
+                val num1 = number1.toInt()
+                val num2 = number2.toInt()
+                val result = num1*num2
+                displa.text = "$result"
+            }
+
         }
 
         divition.setOnClickListener {
-            val number1 = edit_text_1.text.toString().toInt()
-            val number2 = edit_text_2.text.toString().toInt()
-            val result = number1+number2
-            displa.text = "$result"
+            val number1 = edit_text_1.text.toString()
+            val number2 = edit_text_2.text.toString()
+
+            if (number1.isEmpty() || number2.isEmpty()){
+                Toast.makeText(this,"please input Number",Toast.LENGTH_SHORT).show()
+            }else{
+                val num1 = number1.toInt()
+                val num2 = number2.toInt()
+                val result = num1/num2
+                displa.text = "$result"
+            }
+
+
         }
 
 
